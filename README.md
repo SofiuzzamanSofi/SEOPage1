@@ -10,7 +10,6 @@ Todo-App
 
 ![image](https://github.com/SofiuzzamanSofi/SEOPage1/assets/108426827/07ee42fc-58f8-409a-8083-01c55db868b1)
 
-
 <br/>
 
 ## Cloning and Installing dependencies
