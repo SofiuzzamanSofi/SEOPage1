@@ -4,9 +4,9 @@ Todo-App
 
 <br/>
 
-### Frontend-Live: [live-url](https://prayer-todo.vercel.app)
+### Frontend-Live: [live-url](https://todo-seo-page1.vercel.app)
 
-### Backend-Url: [backend-uul](https://todo-seo-page1.vercel.app)
+### Backend-Url: [backend-uul](https://prayer-todo-server-via-cli.vercel.app)
 
 <br/>
 
