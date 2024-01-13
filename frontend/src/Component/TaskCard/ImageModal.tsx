@@ -13,17 +13,20 @@ const ImageModal: FC<ImageModalProps> = ({ modalOpenClosed }) => {
         const files = event.target.files;
         console.log('files:', files);
 
+
         if (files?.length) {
             const imageData = new FormData();
             imageData.set("key", import.meta.env.VITE_IMAGEBB_KEY);
+            if (files?.length > 5) {
+                return window.alert("File select Limit only five")
+            }
 
+            setLoading(true);
             // Create an array to store promises
             const uploadPromises: Promise<{ name: string; url: string | null }>[] = [];
 
             for (let i = 0; i < files.length; i++) {
                 imageData.append("image", files[i]);
-
-                setLoading(true);
 
                 // Create a promise for each image upload
                 const uploadPromise = axios.post("https://api.imgbb.com/1/upload", imageData)

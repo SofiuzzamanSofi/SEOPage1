@@ -48,6 +48,27 @@ export const patchTaskService = async (
     }
 };
 
+// edit a task
+export const patchTaskImageService = async (
+    next: express.NextFunction,
+    handleTaskData: TaskTypes
+) => {
+    try {
+        const tasks = await TaskModel.findByIdAndUpdate(
+            handleTaskData._id,
+            {
+                ...handleTaskData
+            },
+            {
+                new: true
+            }
+        );
+        return tasks;
+    } catch (error) {
+        next(error);
+    }
+};
+
 // delete a task
 export const deleteTaskService = async (
     next: express.NextFunction,

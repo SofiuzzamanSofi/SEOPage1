@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteTaskService, getAllTaskService, patchTaskService, postTaskService } from "../service/taskService";
+import { deleteTaskService, getAllTaskService, patchTaskImageService, patchTaskService, postTaskService } from "../service/taskService";
 
 // get all task
 export const getAllTaskController = async (
@@ -76,6 +76,40 @@ export const patchTaskController = async (
     }
     try {
         const getTaskData = await patchTaskService(next, handleTaskData);
+        if (!getTaskData) {
+            return res.status(200).json({
+                success: false,
+                message: `Task Data not found.`,
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                message: "Successfully edit a task.",
+                data: getTaskData,
+            });
+        };
+    } catch (error) {
+        next(error);
+    };
+};
+
+// edit a task
+export const patchTaskImageController = async (
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction,
+) => {
+    const handleTaskData = req?.body;
+    console.log("hitted edit a task.");
+    if (!handleTaskData) {
+        return res.status(400).json({
+            success: false,
+            message: "Task Data is missing",
+        });
+    }
+    try {
+        return console.log('handleTaskData:', handleTaskData);
+        const getTaskData = await patchTaskImageService(next, handleTaskData);
         if (!getTaskData) {
             return res.status(200).json({
                 success: false,
