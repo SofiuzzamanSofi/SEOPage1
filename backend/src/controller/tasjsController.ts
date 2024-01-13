@@ -108,7 +108,7 @@ export const patchTaskImageController = async (
         });
     }
     try {
-        return console.log('handleTaskData:', handleTaskData);
+        // console.log('handleTaskData:', handleTaskData);
         const getTaskData = await patchTaskImageService(next, handleTaskData);
         if (!getTaskData) {
             return res.status(200).json({

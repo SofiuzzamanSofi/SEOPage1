@@ -17,7 +17,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ task }) => {
 
-    const [modalOpenClosed, setModalOpenClosed] = useState<boolean>(true);
+    const [modalOpenClosed, setModalOpenClosed] = useState<boolean>(false);
 
     const addedPic = () => {
         console.log('pic-added:');
@@ -89,7 +89,7 @@ const Card: FC<CardProps> = ({ task }) => {
                         <img className="rotate-45 cursor-pointer" src={paperClipImage} alt="" onClick={addedPic} />
                     </div>
                     <div>
-                        <p className=' rounded-sm text-xs'>25</p>
+                        <p className=' rounded-sm text-xs'>{task.images?.length || "25"}</p>
                     </div>
                 </div>
                 <div className='flex items-center rounded-sm gap-1 px-1'>
@@ -101,7 +101,9 @@ const Card: FC<CardProps> = ({ task }) => {
                     </div>
                 </div>
             </div>
-            <ImageModal modalOpenClosed={modalOpenClosed} />
+            {
+                modalOpenClosed && <ImageModal setModalOpenClosed={setModalOpenClosed} _id={task._id!} images={task.images} />
+            }
         </div>
     );
 };

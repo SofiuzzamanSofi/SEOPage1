@@ -1,6 +1,6 @@
 import express from "express";
 import { TaskModel } from "../model/taskSchema";
-import { TaskTypes } from "../typesInterface/typesInterface";
+import { TaskImagesTypes, TaskTypes } from "../typesInterface/typesInterface";
 
 // get all task 
 export const getAllTaskService = async (
@@ -51,13 +51,13 @@ export const patchTaskService = async (
 // edit a task
 export const patchTaskImageService = async (
     next: express.NextFunction,
-    handleTaskData: TaskTypes
+    handleTaskData: TaskImagesTypes
 ) => {
     try {
         const tasks = await TaskModel.findByIdAndUpdate(
             handleTaskData._id,
             {
-                ...handleTaskData
+                $push: { images: handleTaskData.allUrlWithName },
             },
             {
                 new: true

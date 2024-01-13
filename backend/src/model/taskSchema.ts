@@ -19,6 +19,16 @@ const taskSchema = new mongoose.Schema({
         required: true,
         enum: ["todo", "in-progress", "done"],
     },
+    images: [
+        {
+            name: {
+                type: String
+            },
+            url: {
+                type: String
+            }
+        }
+    ]
 },
     {
         timestamps: true,

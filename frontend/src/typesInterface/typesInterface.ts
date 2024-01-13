@@ -4,7 +4,15 @@ export interface TaskTypes {
     slNo?: number | undefined;
     title?: string | undefined;
     description?: string | undefined;
+    images?: ImagesTypes[];
 }
+
+export interface ImagesTypes {
+    _id?: string;
+    name?: string;
+    url?: string;
+}
+
 export interface EditTaskTypes {
     state: string;
     _id?: string | undefined;
@@ -17,5 +25,5 @@ export interface TaskInfoTypes {
     taskList: TaskTypes[] | undefined;
     loading: boolean;
     modifyTask: (data: EditTaskTypes) => Promise<boolean>;
-    setReloadData: React.Dispatch<React.SetStateAction<boolean>>
+    setReloadData: React.Dispatch<React.SetStateAction<boolean>>;
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FC, createContext, useEffect, useState, ReactNode } from 'react';
+import { FC, createContext, useEffect, useState, ReactNode, useContext } from 'react';
 import { EditTaskTypes, TaskInfoTypes, TaskTypes } from '../typesInterface/typesInterface';
 
 interface TaskProviderProps {
@@ -8,7 +8,7 @@ interface TaskProviderProps {
 
 export const TaskContext = createContext<TaskInfoTypes | undefined>(undefined);
 
-export const TaskProvider: FC<TaskProviderProps> = ({ children }) => {
+export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [taskList, setTaskList] = useState<TaskTypes[]>();
     const [loading, setLoading] = useState<boolean>(true);
     const [reloadData, setReloadData] = useState<boolean>(true);
@@ -52,4 +52,13 @@ export const TaskProvider: FC<TaskProviderProps> = ({ children }) => {
             {children}
         </TaskContext.Provider>
     );
+};
+
+// export AuthContext to use easily
+export const taskAuth = () => {
+    const context = useContext(TaskContext);
+    if (!context) {
+        throw new Error("useAuth must be used within an AuthProvider");
+    }
+    return context;
 };

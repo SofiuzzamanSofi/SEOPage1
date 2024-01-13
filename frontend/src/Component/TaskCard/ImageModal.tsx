@@ -1,11 +1,18 @@
 import axios from 'axios';
-import { ChangeEvent, FC, useState } from 'react';
+import { FC, useState } from 'react';
+import { ImagesTypes } from '../../typesInterface/typesInterface';
+import { taskAuth } from '../../context/TaskProvider';
+import { Link } from 'react-router-dom';
 
 interface ImageModalProps {
-    modalOpenClosed: boolean
+    setModalOpenClosed: React.Dispatch<React.SetStateAction<boolean>>;
+    _id: string;
+    images: ImagesTypes[] | undefined
 };
 
-const ImageModal: FC<ImageModalProps> = ({ modalOpenClosed }) => {
+const ImageModal: FC<ImageModalProps> = ({ setModalOpenClosed, _id, images }) => {
+
+    const { setReloadData } = taskAuth()
 
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -45,8 +52,13 @@ const ImageModal: FC<ImageModalProps> = ({ modalOpenClosed }) => {
             // Wait for all promises to resolve
             try {
                 const allUrlWithName = await Promise.all(uploadPromises);
-                setLoading(false);
                 console.log('All uploads completed.', allUrlWithName);
+
+                const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/patch-task/image`, { _id, allUrlWithName });
+                if (response.data.success) {
+                    setReloadData((prev) => !prev);
+                }
+                setLoading(false);
             } catch (error) {
                 setLoading(false);
                 console.error('Error uploading files:', error);
@@ -55,11 +67,18 @@ const ImageModal: FC<ImageModalProps> = ({ modalOpenClosed }) => {
     };
 
 
-    console.log('selectedImages:',);
+    console.log('selectedImages:', images);
 
     return (
-        <div className={`${modalOpenClosed ? "hidden" : ""} min-h-screen w-full bg-[#eeeeee] absolute  top-[-10px] bottom-[-10px] left-0 right-0 flex justify-center items-center z-10`}>
-            <div className='min-w-[20rem] max-w-[40rem] bg-white p-4' >
+        <div className={`min-h-screen w-full bg-zinc-200 absolute  top-[-10px]  left-0 right-0 flex justify-center items-center z-10`}
+            onClick={(e) => {
+                if (e.target !== e.currentTarget) {
+                    return
+                };
+                setModalOpenClosed((prev) => !prev);
+            }}
+        >
+            <div className='min-w-[20rem] max-w-[40rem] bg-white p-4 space-y-4 overflow-auto' >
                 <div className="">
                     {
                         loading ?
@@ -93,15 +112,37 @@ const ImageModal: FC<ImageModalProps> = ({ modalOpenClosed }) => {
                             </>
                     }
                 </div>
-                <div>
-                    <div>
-                        <p> File Name</p>
-                    </div>
-                    <div>
-                        <p>Name.pnj</p>
-                        <p>Name.pnj</p>
-                    </div>
-                </div>
+                {
+                    images?.length == 0 ?
+                        <div>
+                            No image Found.
+                        </div>
+                        :
+                        <div>
+                            <div>
+                                <p className='font-semibold'> File Name</p>
+                            </div>
+                            <div className='space-y-4 '>
+                                {
+                                    images?.map((image) => (
+                                        <div key={image._id} className='flex justify-between'>
+
+                                            <div>
+
+                                                <p>{image.name}</p>
+                                            </div>
+
+                                            <a href={image.url!} target="_blank" title='click to open'>
+                                                <img className="w-24 h-24" src={image.url} alt="" />
+
+                                            </a>
+                                        </div>
+
+                                    ))
+                                }
+                            </div>
+                        </div>
+                }
             </div>
         </div>
     );
