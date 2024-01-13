@@ -1,6 +1,4 @@
-import React, { FC, useState, useContext } from 'react';
-import { TaskTypes } from '../../typesInterface/typesInterface';
-import toast from 'react-hot-toast';
+import React, { FC, useContext } from 'react';
 import { TaskContext } from '../../context/TaskProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Card from '../TaskCard/Card';
@@ -14,59 +12,8 @@ const Task: FC<TaskProps> = () => {
 
     const taskInfo = useContext(TaskContext);
 
-    const [grabElementDiv, setGrabElementDiv] = useState<HTMLDivElement | null>(null);
-    const [grabElementData, setGrabElementData] = useState<TaskTypes | null>(null);
-
     const todoTask = taskInfo?.taskList?.filter((task) => task);
-    const progressTask = taskInfo?.taskList?.filter((task) => task.state === "in-progress");
-    const doneTask = taskInfo?.taskList?.filter((task) => task.state === "done");
 
-    // drag start 
-    const handleDragStart = (e: React.DragEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>, task: TaskTypes) => {
-        // e.preventDefault();
-        const selected = e.target as HTMLDivElement
-        e.currentTarget.classList.add("dragged");
-        setGrabElementDiv(selected);
-        setGrabElementData(task);
-    };
-
-    // dragOver || draging 
-    const handleDragOver = (e: React.DragEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        e.preventDefault();
-    };
-
-    // drop and edit the data of mongodb 
-    const handleDrop = async (e: React.DragEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>, statusName: "todo" | "in-progress" | "done") => {
-        e.preventDefault();
-
-        e.currentTarget.appendChild(grabElementDiv!);
-
-        if (statusName !== grabElementData?.state) {
-            const newData = { ...grabElementData, state: statusName };
-
-            //edit mongodb data
-            const modifyTask = await taskInfo?.modifyTask(newData);
-            if (modifyTask === true) {
-                // e.currentTarget.appendChild(grabElementDiv!);
-                toast.success("edit success");
-            }
-            else {
-                toast.error("Update task failed, Try again later.");
-            }
-        }
-        else {
-            // e.currentTarget.appendChild(grabElementDiv!);
-            toast.success("edit success")
-        }
-    };
-
-    // drag end 
-    const handleDragEnd = (e: React.DragEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        e.currentTarget.classList.remove("dragged");
-        setGrabElementDiv(null);
-        setGrabElementData(null);
-    };
 
     if (taskInfo?.loading) {
         return <LoadingPage />
@@ -80,8 +27,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -111,8 +56,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -141,8 +84,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -171,8 +112,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -200,8 +139,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -229,8 +166,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>
@@ -258,8 +193,6 @@ const Task: FC<TaskProps> = () => {
                     <div
                         id='todo'
                         className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
-                        onDragOver={handleDragOver}
-                        onDrop={(e) => handleDrop(e, "todo")}
                     >
                         <div className='flex justify-between px-2 pt-2 pb-4'>
                             <div className='flex items-center gap-1'>

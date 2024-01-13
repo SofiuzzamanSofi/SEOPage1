@@ -2,7 +2,6 @@ import axios from 'axios';
 import { FC, useState } from 'react';
 import { ImagesTypes } from '../../typesInterface/typesInterface';
 import { taskAuth } from '../../context/TaskProvider';
-import { Link } from 'react-router-dom';
 
 interface ImageModalProps {
     setModalOpenClosed: React.Dispatch<React.SetStateAction<boolean>>;

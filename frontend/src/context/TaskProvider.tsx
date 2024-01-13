@@ -1,10 +1,6 @@
 import axios from 'axios';
-import { FC, createContext, useEffect, useState, ReactNode, useContext } from 'react';
+import { createContext, useEffect, useState, useContext } from 'react';
 import { EditTaskTypes, TaskInfoTypes, TaskTypes } from '../typesInterface/typesInterface';
-
-interface TaskProviderProps {
-    children: ReactNode
-}
 
 export const TaskContext = createContext<TaskInfoTypes | undefined>(undefined);
 
