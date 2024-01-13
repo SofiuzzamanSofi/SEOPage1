@@ -17,8 +17,6 @@ const ImageModal: FC<ImageModalProps> = ({ setModalOpenClosed, _id, images }) =>
 
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event.target.files;
-        console.log('files:', files);
-
 
         if (files?.length) {
             const imageData = new FormData();
@@ -51,7 +49,6 @@ const ImageModal: FC<ImageModalProps> = ({ setModalOpenClosed, _id, images }) =>
             // Wait for all promises to resolve
             try {
                 const allUrlWithName = await Promise.all(uploadPromises);
-                console.log('All uploads completed.', allUrlWithName);
 
                 const response = await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/patch-task/image`, { _id, allUrlWithName });
                 if (response.data.success) {
@@ -64,9 +61,6 @@ const ImageModal: FC<ImageModalProps> = ({ setModalOpenClosed, _id, images }) =>
             }
         }
     };
-
-
-    console.log('selectedImages:', images);
 
     return (
         <div className={`min-h-screen w-full bg-[#F2F4F7] absolute  top-[-10px]  left-0 right-0 flex justify-center items-center z-10`}

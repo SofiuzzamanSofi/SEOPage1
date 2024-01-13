@@ -20,9 +20,6 @@ const Card: FC<CardProps> = ({ task }) => {
     const [modalOpenClosed, setModalOpenClosed] = useState<boolean>(false);
 
     const addedPic = () => {
-        console.log('pic-added:');
-        console.log('task.:', task._id);
-
         setModalOpenClosed((prev) => !prev)
     }
     return (
