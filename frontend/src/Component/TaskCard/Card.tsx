@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import profileImage1 from "../../assets/sofi.jpeg"
 import profileImage2 from "../../assets/hunlim.png"
 import profileImage3 from "../../assets/manilla.png"
@@ -9,6 +9,7 @@ import wechatImage from "../../assets/wechat.svg"
 import paperClipImage from "../../assets/paperclip.svg"
 import calenderImage from "../../assets/calender.svg"
 import { TaskTypes } from '../../typesInterface/typesInterface';
+import ImageModal from './ImageModal';
 
 interface CardProps {
     task: TaskTypes;
@@ -16,9 +17,13 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ task }) => {
 
+    const [modalOpenClosed, setModalOpenClosed] = useState<boolean>(true);
+
     const addedPic = () => {
         console.log('pic-added:');
         console.log('task.:', task._id);
+
+        setModalOpenClosed((prev) => !prev)
     }
     return (
         <div className='space-y-3 p-2 bg-white'>
@@ -96,7 +101,7 @@ const Card: FC<CardProps> = ({ task }) => {
                     </div>
                 </div>
             </div>
-
+            <ImageModal modalOpenClosed={modalOpenClosed} />
         </div>
     );
 };

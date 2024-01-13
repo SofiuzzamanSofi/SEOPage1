@@ -79,7 +79,7 @@ const Task: FC<TaskProps> = () => {
 
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -110,7 +110,7 @@ const Task: FC<TaskProps> = () => {
 
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -140,7 +140,7 @@ const Task: FC<TaskProps> = () => {
                     </div>
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -170,7 +170,7 @@ const Task: FC<TaskProps> = () => {
                     </div>
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -199,7 +199,7 @@ const Task: FC<TaskProps> = () => {
                     </div>
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -228,7 +228,7 @@ const Task: FC<TaskProps> = () => {
                     </div>
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
@@ -257,7 +257,7 @@ const Task: FC<TaskProps> = () => {
                     </div>
                     <div
                         id='todo'
-                        className="border min-w-80 p-2 bg-[#F2F4F7]"
+                        className="border min-w-[19rem] p-2 bg-[#F2F4F7]"
                         onDragOver={handleDragOver}
                         onDrop={(e) => handleDrop(e, "todo")}
                     >
