@@ -1,10 +1,8 @@
 import React, { FC, useState, useContext } from 'react';
 import { TaskTypes } from '../../typesInterface/typesInterface';
-import TaskCard from '../TaskCard/TaskCard';
 import toast from 'react-hot-toast';
 import { TaskContext } from '../../context/TaskProvider';
 import LoadingPage from '../LoadingPage/LoadingPage';
-import menuClosed from "../../assets/menu-closed.svg"
 import Card from '../TaskCard/Card';
 
 interface TaskProps {
@@ -102,6 +100,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -132,6 +131,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -161,6 +161,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -189,6 +190,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -217,6 +219,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -245,6 +248,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))
@@ -273,6 +277,7 @@ const Task: FC<TaskProps> = () => {
                                     todoTask.map((task, index) => (
                                         <Card
                                             key={index}
+                                            task={task}
 
                                         />
                                     ))

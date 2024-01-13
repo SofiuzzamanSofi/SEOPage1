@@ -8,12 +8,18 @@ import clipBoardImage from "../../assets/clipboard-fill.svg"
 import wechatImage from "../../assets/wechat.svg"
 import paperClipImage from "../../assets/paperclip.svg"
 import calenderImage from "../../assets/calender.svg"
+import { TaskTypes } from '../../typesInterface/typesInterface';
 
 interface CardProps {
-
+    task: TaskTypes;
 };
 
-const Card: FC<CardProps> = ({ }) => {
+const Card: FC<CardProps> = ({ task }) => {
+
+    const addedPic = () => {
+        console.log('pic-added:');
+        console.log('task.:', task._id);
+    }
     return (
         <div className='space-y-3 p-2 bg-white'>
 
@@ -75,7 +81,7 @@ const Card: FC<CardProps> = ({ }) => {
                 </div>
                 <div className='flex items-center rounded-sm gap-1 px-1'>
                     <div>
-                        <img className="rotate-45" src={paperClipImage} alt="" />
+                        <img className="rotate-45 cursor-pointer" src={paperClipImage} alt="" onClick={addedPic} />
                     </div>
                     <div>
                         <p className=' rounded-sm text-xs'>25</p>
