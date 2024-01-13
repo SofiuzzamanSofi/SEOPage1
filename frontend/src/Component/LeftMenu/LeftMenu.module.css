@@ -1,0 +1,99 @@
+.left_menu_div {
+    padding-top: 15px;
+    /* min-height: 100vh; */
+}
+
+.left_menu_div_pic {
+    margin: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left_menu_image_with_dropdown {
+    padding: 0.2rem .5rem;
+    /* top-bottom 0.2rem right-left .5rem*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #242424;
+    border: none;
+}
+
+.left_menu_image_with_dropdown:hover {
+    background-color: #363636;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left_menu_image_with_dropdown:active {
+    transform: scale(.9);
+}
+
+.left_menu_profile_image {
+    width: 24px;
+    height: 24px;
+    border-radius: 15px;
+}
+
+.profile_name_drow_arrow {
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closed_bell_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closed_button_image {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #242424;
+    border: none;
+}
+
+.closed_button_image:hover {
+    background-color: #363636;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.closed_button_image:active {
+    transform: scale(.9);
+}
+
+.style.all_links_div {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid navajowhite;
+    background-color: red;
+    margin: 0.75rem;
+}
+
+.all_links_grid {
+    margin-top: 1.75rem;
+    margin-left: 0.75rem;
+}
+
+.all_links {
+    display: flex;
+    gap: 1rem;
+    /* justify-content: space-between; */
+    padding: 6px;
+}
+
+.all_links:hover {
+    background-color: #363636;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {}

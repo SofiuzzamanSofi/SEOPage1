@@ -1,0 +1,32 @@
+[
+    {
+        "slNo": 1,
+        "title": "Fajr",
+        "description": "The Fajr prayer is the first of the five mandatory salah, to be performed anytime starting from the moment of dawn, but not after sunrise. The Isha prayer, which is the daily prayer directly before the Fajr prayer, usually does not take place after midnight.",
+        "state": "todo"
+    },
+    {
+        "slNo": 2,
+        "title": "Zuhr",
+        "description": "The Zuhr prayer is the second of the five daily mandatory Islamic prayers. It is observed after Fajr and before Asr prayers, between the zenith of noon and sunset.",
+        "state": "in-progress"
+    },
+    {
+        "slNo": 3,
+        "title": "Asr",
+        "description": "The Asr prayer is the third of the five mandatory salah. The Asr prayer consists of four obligatory rakat. An additional four rakat are recommended to be performed before the obligatory rakat.",
+        "state": "done"
+    },
+    {
+        "slNo": 4,
+        "title": "Maghrib",
+        "description": "The Maghrib prayer is the fourth of the five mandatory salah. According to Sunni Muslims, the period for Maghrib prayer starts just after sunset, following Asr prayer, and ends at the beginning of night, the start of the Isha prayer.",
+        "state": "todo"
+    },
+    {
+        "slNo": 5,
+        "title": "Isha",
+        "description": "The Isha prayer is the last and fifth of the five mandatory salah. It is a four rak'ah prayer. The five daily prayers collectively are one pillar of the Five Pillars of Islam, in Sunni Islam, and one of the ten Practices of the Religion according to Shia Islam. In Persian it is known as نماز عشاء.",
+        "state": "in-progress"
+    }
+]
