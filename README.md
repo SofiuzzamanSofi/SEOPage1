@@ -1,12 +1,12 @@
 <h1 align="center">
-Prayer-Todo
+Todo-App
 </h1>
 
 <br/>
 
 ### Frontend-Live: [live-url](https://prayer-todo.vercel.app)
 
-### Backend-Url: [backend-uul](https://prayer-todo-server-via-cli-sofiuzzamansofi.vercel.app)
+### Backend-Url: [backend-uul](https://todo-seo-page1.vercel.app)
 
 <br/>
 
@@ -15,7 +15,7 @@ Prayer-Todo
 First clone this project:
 
 ```bash
-git clone https://github.com/SofiuzzamanSofi/prayer-todo.git
+git clone https://github.com/SofiuzzamanSofi/SEOPage1.git
 ```
 Then go to server or client code:
 
@@ -61,8 +61,7 @@ client side:
 <br> • `Vite`
 <br> • `React.js`
 <br> • `Typescript`
-<br> • `Raw CSS`
-<br> • `Drag & Drop Without any library`
+<br> • `Tailwind CSS`
 
 server side:
 <br> • `Node.js`
@@ -80,4 +79,4 @@ Comming soon...
 
 <h3 align="center">
 **Thank You**
-</h3># SEOPage1
+</h3>

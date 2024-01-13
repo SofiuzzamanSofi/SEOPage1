@@ -29,7 +29,7 @@ app.use("/api/v1", route());
 app.get("/", (req, res) => {
     res.status(200).send({
         success: true,
-        message: "Welcome to the prayer-todo-server",
+        message: "Welcome to the prayer/SEOPage1-todo-server",
         data: "Dummy Data text",
     });
 });

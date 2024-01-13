@@ -69,7 +69,7 @@ const ImageModal: FC<ImageModalProps> = ({ setModalOpenClosed, _id, images }) =>
     console.log('selectedImages:', images);
 
     return (
-        <div className={`min-h-screen w-full bg-zinc-200 absolute  top-[-10px]  left-0 right-0 flex justify-center items-center z-10`}
+        <div className={`min-h-screen w-full bg-[#F2F4F7] absolute  top-[-10px]  left-0 right-0 flex justify-center items-center z-10`}
             onClick={(e) => {
                 if (e.target !== e.currentTarget) {
                     return
